@@ -80,7 +80,7 @@ export default function BasicCard(props) {
   }
 
   async function submitEvalFeedback(data) {
-    return fetch("http://localhost:3001/api/v1/evaluator/feedback-text", {
+    return fetch("/api/v1/evaluator/feedback-text", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -96,7 +96,7 @@ export default function BasicCard(props) {
       });
   }
   async function submitIsEvalFinished(data) {
-    return fetch("http://localhost:3001/api/v1/evaluator/ief", {
+    return fetch("/api/v1/evaluator/ief", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -118,7 +118,7 @@ export default function BasicCard(props) {
   useEffect(() => {
     async function runner() {
       let fetcheVehicleInfo = await fetch(
-        `http://localhost:3001/api/v1/evaluator/get-uc?ucId=${id}`,
+        `/api/v1/evaluator/get-uc?ucId=${id}`,
         {
           method: "GET",
         }
@@ -211,7 +211,7 @@ export default function BasicCard(props) {
   }
   async function getPredictedPrice() {
     let { predictedPrice } = await fetch(
-      `http://localhost:3001/api/v1/evaluator/predict-price?ucId=${id}`
+      `/api/v1/evaluator/predict-price?ucId=${id}`
     ).then((res) => res.json());
     console.log(predictedPrice.prediction);
     setPredictedPrice(`${predictedPrice.prediction} Lakhs`);
