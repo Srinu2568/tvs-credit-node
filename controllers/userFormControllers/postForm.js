@@ -6,6 +6,7 @@ const User = require("../../models/User");
 const CustomError = require("../../utils/CustomError.js");
 const { encode, decode } = require("node-base64-image");
 var base64ToImage = require("base64-to-image");
+import rimraf from "rimraf";
 
 const UsedCar = require("../../models/UsedCar");
 const LabelledUsedCar = require("../../models/LabelledUsedCar");
@@ -115,7 +116,7 @@ const postForm = BigPromise(async (req, res, next) => {
     const newpath = await uploader(path);
     urls.push(newpath);
 
-    fs.unlinkSync(path);
+    await rimraf(path);
   }
 
   // console.log(urls);
