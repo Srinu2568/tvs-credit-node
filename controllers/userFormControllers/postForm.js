@@ -139,7 +139,9 @@ const postForm = BigPromise(async (req, res, next) => {
     ucId: usedCarUniqueId,
   };
 
-  let usedCar = await UsedCar.create(usedCarObj);
+  let usedCar = await UsedCar.create(usedCarObj).catch((err) =>
+    console.log(err)
+  );
   // console.log(usedCarObj);
 
   let labelledUsedCar = {
