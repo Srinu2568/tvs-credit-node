@@ -6,7 +6,8 @@ const User = require("../../models/User");
 const CustomError = require("../../utils/CustomError.js");
 const { encode, decode } = require("node-base64-image");
 var base64ToImage = require("base64-to-image");
-import rimraf from "rimraf";
+// import rimraf from "rimraf";
+const rimraf = require("rimraf");
 
 const UsedCar = require("../../models/UsedCar");
 const LabelledUsedCar = require("../../models/LabelledUsedCar");
