@@ -17,10 +17,10 @@ const PORT = process.env.PORT || 80;
 
 const appStarter = async () => {
   await sequelize.authenticate();
-  // await sequelize.sync({ force: true });
-  // await carModelBulkInsert();
-  // await locationBulkInsert();
-  // await devKickStart();
+  await sequelize.sync({ force: true });
+  await carModelBulkInsert();
+  await locationBulkInsert();
+  await devKickStart();
 
   app.listen(PORT, () => console.log(`server running at ${PORT}...`));
 };
