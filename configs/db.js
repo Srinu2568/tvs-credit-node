@@ -33,7 +33,7 @@ const Sequelize = require("sequelize");
 // // for creating models
 // module.exports = { SequelizeHandler, db };
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_ROSE_URL, {
   dialect: "postgres",
   protocol: "postgres",
   dialectOptions: {
