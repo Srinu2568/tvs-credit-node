@@ -117,8 +117,9 @@ const postForm = BigPromise(async (req, res, next) => {
     const newpath = await uploader(path);
     urls.push(newpath);
 
-    await rimraf(path, () => {
+    await rimraf(path, (err) => {
       console.log("deleted");
+      if (err) console.log(err);
     });
   }
 
